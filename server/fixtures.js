@@ -12,7 +12,8 @@ if (Posts.find().count() === 0) {
         userId: putinId,
         author: putinProfile.profile.name,
         url: 'http://russian.rt.com/article/22855',
-        submitted: now - 7 * 3600 * 1000
+        submitted: now - 7 * 3600 * 1000,
+        commentsCount: 1
     });
 
     Comments.insert({
@@ -28,7 +29,8 @@ if (Posts.find().count() === 0) {
         userId: medvedevId,
         author: medvedevProfile.profile.name,
         url: 'http://lifenews.ru',
-        submitted: now - 1 * 3600 * 100
+        submitted: now - 1 * 3600 * 100,
+        commentsCount: 1
     });
 
     Comments.insert({

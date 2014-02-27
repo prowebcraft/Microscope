@@ -12,11 +12,14 @@ Meteor.methods({
             throw new Meteor.Error(401, 'Пожалуйста, авторизуйтесь');
         if (!postData.body || postData.body == '')
             throw new Meteor.Error(402, 'Не указано тело комментария');
+        if (!postData.postId || !Posts.findOne(postData.postId))
+            throw new Meteor.Error(403, 'Несуществующая тема обсуждения');
         var comment = _.extend(_.pick(postData, 'body', 'postId'), {
             userId: user._id,
             author: user.username,
             submitted: new Date().getTime()
         });
+        Posts.update(comment.postId, {$inc: {commentsCount: 1}});
         return Comments.insert(comment);
     }
 });
