@@ -1,3 +1,18 @@
 <template name="postPage">
-   {{> postItem}}
+    {{> postItem}}
+
+    <h2>Комментарии</h2>
+    <ul class="comments">
+        {{#each comments}}
+        {{> comment}}
+        {{/each}}
+    </ul>
+
+    <h3>Оставить комментарий</h3>
+    {{#if currentUser}}
+        {{>commentForm}}
+    {{else}}
+        <p class="bg-warning">Авторизуйтесь для размещения комментариев</p>
+    {{/if}}
+
 </template>

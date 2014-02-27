@@ -3,3 +3,7 @@ Meteor.publish('posts', function(){
       //Some limitations here
    } );
 });
+
+Meteor.publish('comments', function() {
+    return Comments.find();
+})
