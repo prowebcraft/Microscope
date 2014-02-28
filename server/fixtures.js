@@ -42,7 +42,7 @@ if (Posts.find().count() === 0) {
     });
 
 
-    console.log('Loaded test data to databse');
+    console.log('Loaded test data to database');
 }
 
 if (Comments.find().count() === 0) {
